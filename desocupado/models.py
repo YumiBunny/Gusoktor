@@ -6,7 +6,10 @@ class Persona(models.Model):
     apellido = models.CharField(max_length=50)
     fechaDeNacimiento = models.DateField()
     dni = models.CharField(max_length=20)
-    tipoDeTrabajoQuePuedeRealizar = models.ForeignKey('Rubro')
+    experiencialaboral = models.CharField(max_length=70)
+    profesion = models.ForeignKey('Rubro')
+    formacion = models.CharField(max_length=70)
+    habilidades = models.CharField(max_length=70)
     desocupado = models.BooleanField()
 
     def __str__(self):
