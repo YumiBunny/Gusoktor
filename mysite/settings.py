@@ -82,8 +82,9 @@ DATABASES = {
     }
 }
 
-
+AUTH_USER_MODEL = "desocupado.User"
 # Internationalization
+
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
