@@ -1,4 +1,5 @@
 from django.contrib import admin
+from .models import User
 from .models import Persona
 from .models import Rubro
 from .models import Empleo
@@ -6,6 +7,7 @@ from .models import Oferta
 from .models import Agencia
 from .models import Empresa
 
+admin.site.register(User)
 admin.site.register(Persona)
 admin.site.register(Rubro)
 admin.site.register(Empleo)

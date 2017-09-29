@@ -12,10 +12,10 @@ class Persona(models.Model):
     apellido = models.CharField(max_length=50)
     fechaDeNacimiento = models.DateField()
     dni = models.CharField(max_length=20)
-    experiencialaboral = models.CharField(max_length=70)
+    experiencialaboral = models.CharField(max_length=70, null=True)
     profesion = models.ForeignKey('Rubro')
-    formacion = models.CharField(max_length=70)
-    habilidades = models.CharField(max_length=70)
+    formacion = models.CharField(max_length=70, null=True)
+    habilidades = models.CharField(max_length=70, null=True)
     desocupado = models.BooleanField()
 
     def __str__(self):

@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.registrar_desocupado),
+    url(r'^$', views.post_new),
 ]
