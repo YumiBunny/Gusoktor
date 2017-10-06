@@ -1,10 +1,11 @@
-from django.shortcuts import render
 
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-
+from django.contrib.auth.models import User
 from app.core.forms import RegistroDesocupado, RegistroEmpresa
+from app.core.models import *
 
 @login_required
 def home(request):
@@ -64,3 +65,10 @@ def handle_registro_empresa_form(request):
         return redirect('login')
     else:
         return render(request, 'signup.html', {'form': form})
+
+def eliminar(request, user_id):
+	User.objects.get(id=user_id).delete()
+	return render(request, 'eliminar.html', {'id': user_id})
+
+
+

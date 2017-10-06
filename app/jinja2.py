@@ -13,3 +13,6 @@ def environment(**options):
         'user': AnonymousUser()
     })
     return env
+
+#def renderize(url, *args):
+#return reverse(url, args=args)

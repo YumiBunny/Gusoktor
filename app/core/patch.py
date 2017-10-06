@@ -5,10 +5,10 @@
 from django.contrib.auth.models import User 
 
 def is_empresa(self):
-    return (self.empresa.CUIT is not None) and (self.empresa.CUIT is not "")
+    return (self.empresa.cuit is not None) and (self.empresa.cuit is not "")
 
 def is_desocupado(self):
-    return (self.desocupado.DNI is not None) and (self.desocupado.DNI is not "")
+    return (self.desocupado.dni is not None) and (self.desocupado.dni is not "")
 
 def profile(self):
     return self.empresa if self.is_empresa() else self.desocupado

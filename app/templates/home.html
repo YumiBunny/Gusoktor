@@ -10,4 +10,8 @@
   {% if user.is_desocupado() %}
     <p>DNI: {{ user.profile().dni }}</p>
   {% endif %}
+	<a href="{{ url('eliminar', user.id) }}">Eliminar</a>
 {% endblock %}
+
+
+
