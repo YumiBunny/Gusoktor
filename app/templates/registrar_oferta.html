@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+body {background-image: url("https://media.giphy.com/media/VyWoE21Tk4CNa/giphy.gif"); background-size: cover; background-repeat: no-repeat;}
+	.trans{
+	  background-color:white;
+	  color:black
+      position:absolute;
+      text-align:center;
+}
+
+</style>
+
+<h1>Crear Oferta</h1>
+
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors () %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<form method="POST" class="post-form">
+    {{ csrf_input }}
+    {{ form.as_p() }}
+    <button type="submit" class="save btn btn-default">Cargar Contenido</button>
+</form>
+{% endblock %}

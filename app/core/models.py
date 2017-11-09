@@ -96,8 +96,11 @@ class Oferta(models.Model):
     #empresa = models.ForeignKey('Empresa')
     activa = models.BooleanField()
     #necesidad = models.ForeignKey('Rubro')
-    inicio_contrato = models.DateField()
-    fin_contrato = models.DateField()
+    posicion_o_cargo = models.CharField(max_length=40, null=True)
+    descripcion_del_trabajo = models.CharField(max_length=50, null=True)
+    profesion = models.CharField(max_length=30, null=True)
+    carga_horaria = models.CharField(max_length=30, null=True)
+
 
     def __str__(self):
         return self.title
