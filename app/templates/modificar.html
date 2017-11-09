@@ -1,0 +1,14 @@
+from django import forms
+
+from .models import Desocupados
+from .models import Empresas
+
+	class Modificar(forms.ModelForm):
+
+		class ModificarDesocupados:
+		   model = Desocupados
+			fields = ('usuario', 'contraseña', 'DNI', 'Fecha_de_nacimiento', 'Habilidades', 'Formacion', 'Experiencia_laboral', 'habilidades',)
+
+	class ModificarEmpresas:
+   	model = Empresas
+		fields = ('CUIT', 'Rubro', 'Razon_social',)
