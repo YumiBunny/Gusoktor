@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
+from app.core.models import *
 
 class RegistroDesocupado(UserCreationForm):
     DNI = forms.CharField(max_length=10)
@@ -63,21 +63,25 @@ class RegistroEmpresa(UserCreationForm):
         # Y lo devolvemos
         return user
 
+
+
+
+class ModificarDesocupado(forms.ModelForm):
+
+    class Meta:
+        model = Desocupado
+        fields = ('dni', 'fecha_de_nacimiento', 'habilidades', 'formacion', 'experiencia_laboral', 'habilidades',)
+
+class ModificarEmpresa(forms.ModelForm):
+
+    class Meta:
+        model = Empresa
+        fields = ('CUIT', 'rubro', 'razon_social',)
+
 ##########################################
 
-class RegistroOferta(UserCreationForm):
-    posicion_o_cargo = forms.CharField(max_length=40)
-    descripcion_del_trabajo = forms.CharField(max_length=50)
-    profesion = forms.CharField(max_length=30)
-    carga_horaria = forms.CharField(max_length=30)
-
-    def save(self):
-        user = super(RegistroOferta, self).save()
-        user.refresh_from_db()
-        user.empresa.posicion_o_cargo = self.cleaned_data.get('posicion_o_cargo')
-        user.empresa.descripcion_del_trabajo = self.cleaned_data.get('descripcion_del_trabajo')
-        user.empresa.profesion = self.cleaned_data.get('profesion')
-        user.empresa.pcarga_horaria = self.cleaned_data.get('carga_horaria')
-        user.save()
-        return user
+class RegistroOferta(forms.ModelForm):
+    class Meta:
+        model = Oferta
+        fields = ('activa', 'posicion_o_cargo', 'descripcion_del_trabajo', 'profesion', 'carga_horaria')
 

@@ -54,9 +54,9 @@ class Empresa(models.Model):
     # La empresa también es logueable, idem desocupado
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # El resto de los campos
-    cuit = models.CharField(max_length=30)
+    CUIT = models.CharField(max_length=30)
     # Idem acá, las relaciones se las dejo a ustedes
-    # rubro = models.ForeignKey('Rubro')
+    rubro = models.ForeignKey('core.Rubro')
     razon_social = models.CharField(max_length=50)
 
     # Como se representa como texto, o sea, como se ve en el admin

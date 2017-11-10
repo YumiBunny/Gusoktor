@@ -7,8 +7,6 @@ from django.contrib.auth.models import User
 from app.core.forms import RegistroDesocupado, RegistroEmpresa
 from app.core.forms import RegistroOferta
 from app.core.models import *
-from .models import Desocupados
-from .models import Empresas
 
 @login_required
 def home(request):
@@ -92,6 +90,37 @@ def eliminar(request):
 	id_eliminar = request.user.user_id
 	User.objects.get(id=id_eliminar).delete()
 	return render(request, 'eliminar.html', {'id': user_id})
+
+def modificar_desocupado(request):
+    if request.method == "GET":
+        return get_modificar_desocupado_form(request)
+    elif request.method == 'POST':
+        return handle_modificar_desocupado_form(request)
+
+def modificar_empresa(request):
+    if request.method == "GET":
+        return get_modificar_empresa_form(request)
+    elif request.method == 'POST':
+        return handle_modificar_empresa_form(request)
+
+def handle_modificar_desocupado(request):
+    form = ModificarDesocupado(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('login')
+    else:
+        return render(request, 'modificar_desocupado.html', {'form': form})
+
+def handle_modificar_empresa(request):
+    form = ModificarEmpresa(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('login')
+    else:
+        return render(request, 'modificar_Empresa.html', {'form': form})
+
+
+
 
 
 
