@@ -11,12 +11,12 @@ body {background-image: url("http://cloud-3.steamusercontent.com/ugc/85046658033
 }
 
 </style>
-<br> <br> <br> <br> <br> <br> <br> <br> 
+<br> <br> <br> <br> <br>
   <center class="trans" style="z index:1;filter:alpha(opacity=50);float:center;-moz-opacity:.50;opacity:.70" >
 <br>
-  <h2>Log in to My Site</h2>
+  <h2>Logueate</h2>
   {% if form.errors %}
-    <p style="color: red">Your username and password didn't match. Please try again.</p>
+    <p style="color: red">El usuario o contraseña es incorrecto. Porfavor vuelve a intentarlo.</p>
   {% endif %}
   <form method="post">
     {{ csrf_input }}
@@ -33,8 +33,9 @@ body {background-image: url("http://cloud-3.steamusercontent.com/ugc/85046658033
         {% endif %}
       </p>
     {% endfor %}
-    <button type="submit">Log in</button>
-    <a href="{{ url('registrar.desocupado') }}">New to My Site? Sign up</a>
+<br>
+    <button type="submit">Entrar</button>
+    <a href="{{ url('registrar.desocupado') }}">¿No tienes cuenta? Registrate</a>
 <br> 
 <br>
   </form>
