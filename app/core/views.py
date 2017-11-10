@@ -7,8 +7,6 @@ from django.contrib.auth.models import User
 from app.core.forms import RegistroDesocupado, RegistroEmpresa
 from app.core.forms import RegistroOferta
 from app.core.models import *
-from .models import Desocupados
-from .models import Empresas
 
 @login_required
 def home(request):

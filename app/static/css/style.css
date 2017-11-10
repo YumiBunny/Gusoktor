@@ -60,6 +60,18 @@ a:hover {
 }
 
 /* Logo */
+header {
+    text-align: center;
+    padding-top: 20px;
+}
+.logo {
+    margin: 0 0 20px 0;
+}
+.logo img {
+    width: 725px;
+    height: auto;
+    text-align: center;
+}
 
 #logo {
 	float: right;
