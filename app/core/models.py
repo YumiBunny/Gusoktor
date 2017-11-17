@@ -56,7 +56,7 @@ class Empresa(models.Model):
     # El resto de los campos
     CUIT = models.CharField(max_length=30)
     # Idem acá, las relaciones se las dejo a ustedes
-    rubro = models.ForeignKey('core.Rubro')
+    rubro = models.ForeignKey('core.Rubro', null=True)
     razon_social = models.CharField(max_length=50)
 
     # Como se representa como texto, o sea, como se ve en el admin
@@ -103,4 +103,4 @@ class Oferta(models.Model):
 
 
     def __str__(self):
-        return self.title
+        return self.posicion_o_cargo

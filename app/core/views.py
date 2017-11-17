@@ -81,7 +81,7 @@ def handle_registro_oferta_form(request):
     form = RegistroOferta(request.POST)
     if form.is_valid():
         form.save()
-        return redirect('login')
+        return redirect('home')
     else:
         return render(request, 'registrar_oferta.html', {'form': form})
 

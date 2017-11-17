@@ -83,5 +83,5 @@ class ModificarEmpresa(forms.ModelForm):
 class RegistroOferta(forms.ModelForm):
     class Meta:
         model = Oferta
-        fields = ('activa', 'posicion_o_cargo', 'descripcion_del_trabajo', 'profesion', 'carga_horaria')
+        fields = ('posicion_o_cargo', 'descripcion_del_trabajo', 'profesion', 'carga_horaria')
 

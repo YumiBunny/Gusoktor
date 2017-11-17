@@ -5,7 +5,7 @@
 from django.contrib.auth.models import User 
 
 def is_empresa(self):
-    return (self.empresa.cuit is not None) and (self.empresa.cuit is not "")
+    return (self.empresa.CUIT is not None) and (self.empresa.CUIT is not "")
 
 def is_desocupado(self):
     return (self.desocupado.dni is not None) and (self.desocupado.dni is not "")
