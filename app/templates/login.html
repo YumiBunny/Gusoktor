@@ -15,6 +15,7 @@ body {background-image: url("http://cloud-3.steamusercontent.com/ugc/85046658033
   <center class="trans" style="z index:1;filter:alpha(opacity=50);float:center;-moz-opacity:.50;opacity:.70" >
 <br>
   <h2>Logueate</h2>
+<br>
   {% if form.errors %}
     <p style="color: red">El usuario o contraseña es incorrecto. Porfavor vuelve a intentarlo.</p>
   {% endif %}
@@ -34,7 +35,10 @@ body {background-image: url("http://cloud-3.steamusercontent.com/ugc/85046658033
       </p>
     {% endfor %}
 <br>
+
     <button type="submit">Entrar</button>
+<br>
+<br>
     <a href="{{ url('registrar.desocupado') }}">¿No tienes cuenta? Registrate</a>
 <br> 
 <br>

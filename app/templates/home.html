@@ -1,6 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<style>
+body {background-image: url("https://media.giphy.com/media/BHNfhgU63qrks/giphy.gif"); background-size: cover; background-repeat: no-repeat;}
+	.trans{
+	  background-color:white;
+	  color:black
+      position:absolute;
+      text-align:center;
+}
+
+</style>
+<br><br>
+  <center class="trans" style="z index:1;filter:alpha(opacity=50);float:center;-moz-opacity:.50;opacity:.70" >
   <h2>Bienvenido!, {{ user.get_full_name() }} <small>{{ user.username }}</small>.
 </h2>
   <p>Sos un: {{ user.profile_type() }}</p>
@@ -12,6 +25,8 @@
     <p>DNI: {{ user.profile().dni }}</p>
   {% endif %}
 	<a href="{{ url('eliminar') }}">Eliminar</a>
+
+</center>
 <!--
     <input type="button" value="Eliminar">
 -->
