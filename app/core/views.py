@@ -87,9 +87,9 @@ def handle_registro_oferta_form(request):
 
 
 def eliminar(request):
-	id_eliminar = request.user.user_id
+	id_eliminar = request.user.id
 	User.objects.get(id=id_eliminar).delete()
-	return render(request, 'eliminar.html', {'id': user_id})
+	return render(request, 'eliminar.html', {'id': id_eliminar})
 
 def modificar_desocupado(request):
     if request.method == "GET":
