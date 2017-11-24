@@ -24,7 +24,7 @@ body {background-image: url("https://media.giphy.com/media/BHNfhgU63qrks/giphy.g
   {% if user.is_desocupado() %}
     <p>DNI: {{ user.profile().dni }}</p>
   {% endif %}
-	<a href="{{ url('eliminar') }}">Eliminar</a>
+	<a href="{{ url('eliminar') }}"><button type="submit">Eliminar</button></a>
 
 </center>
 <!--
