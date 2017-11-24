@@ -5,7 +5,7 @@
     <title>{% block title %}Gusoktor{% endblock %}</title>
     <link rel='stylesheet' href={{ static('css/style.css') }}>
   </head>
-  <body>
+  <body class="{% block bodyname %}{% endblock %}">
     <header>
         <div class="logo">
             <a href="{{ url('home') }}"><img src="{{ static('images/logo.png') }}" alt="Logo"></a>
@@ -14,7 +14,7 @@
         {% if user.is_authenticated() %}
             <a href="{{ url('logout') }}">cerrar sesion</a>
         {% else %}
-            <!--<a href="{{ url('login') }}">ingresar</a> / <a href="{{ url('registrar.empresa') }}">registrar</a>--        >
+            <a href="{{ url('login') }}">ingresar</a> / <a href="{{ url('registrar.empresa') }}">registrar</a>
         {% endif %}
     </header>
     <hr>

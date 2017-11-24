@@ -1,47 +1,37 @@
 {% extends 'base.html' %}
+
+{% block bodyname %}login{% endblock %}
+
 {% block content %}
-
-<style>
-body {background-image: url("http://cloud-3.steamusercontent.com/ugc/850466580331699658/6BFB30EA10F0FAF031DB789985E5019820AD3D6B/"); background-size: cover; background-repeat: no-repeat;}
-	.trans{
-	  background-color:white;
-	  color:black
-      position:absolute;
-      text-align:center;
-}
-
-</style>
-<br> <br> <br> <br> <br>
-  <center class="trans" style="z index:1;filter:alpha(opacity=50);float:center;-moz-opacity:.50;opacity:.70" >
-<br>
+<center class="trans">
+  <br>
   <h2>Logueate</h2>
-<br>
-  {% if form.errors %}
-    <p style="color: red">El usuario o contraseña es incorrecto. Porfavor vuelve a intentarlo.</p>
+  <br> {% if form.errors %}
+  <p style="color: red">El usuario o contraseña es incorrecto. Porfavor vuelve a intentarlo.</p>
   {% endif %}
   <form method="post">
     {{ csrf_input }}
-    <input type="hidden" name="next" value="{{ next }}" />
-    {% for field in form %}
+    <input type="hidden" name="next" value="{{ next }}" /> {% for field in form %}
+    <p>
+      {{ field.label_tag() }}
+      <br> {{ field }}
+      <br> {% for error in field.errors %}
+      <p style="color: red">{{ error }}</p>
+      {% endfor %} {% if field.help_text %}
       <p>
-        {{ field.label_tag() }}<br>
-        {{ field }}<br>
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-        {% if field.help_text %}
-          <p><small style="color: grey">{{ field.help_text }}</small></p>
-        {% endif %}
+        <small style="color: grey">{{ field.help_text }}</small>
       </p>
+      {% endif %}
+    </p>
     {% endfor %}
-<br>
+    <br>
 
     <button type="submit">Entrar</button>
-<br>
-<br>
+    <br>
+    <br>
     <a href="{{ url('registrar.desocupado') }}">¿No tienes cuenta? Registrate</a>
-<br> 
-<br>
+    <br>
+    <br>
   </form>
-  </center>
+</center>
 {% endblock %}
